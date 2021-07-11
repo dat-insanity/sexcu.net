@@ -1,0 +1,14 @@
+html
+   head
+      title=name
+      meta(name='twitter:card', content='summary_large_image')
+      meta(property='twitter:image', content=url)
+      link(type='application/json+oembed', href='https://sexcunet.herokuapp.com/oembed/'+fakeip)
+      meta#embed-title(property='og:title', content=name)
+      meta#embed-subtitle(property='og:site_name', content='Files uploaded: '+fileamount)
+      meta#embed-desc(property='og:description', content='This file took up '+filesize+' MB of space!')
+      meta(name='theme-color', content='#'+randhexcolour)
+   body
+      h1=name
+      a(href = url) URL
+      img(src=url)

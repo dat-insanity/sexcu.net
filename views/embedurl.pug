@@ -1,0 +1,13 @@
+html
+   head
+      title=name
+      meta(name='twitter:card', content='summary_large_image')
+      meta(property='twitter:image', content=url)
+      link(type='application/json+oembed', href=author)
+      meta#embed-title(property='og:title', content=title)
+      meta#embed-subtitle(property='og:site_name', content=subtitle)
+      meta#embed-desc(property='og:description', content=desc)
+      meta(name='theme-color', content='#'+randhexcolour)
+   body
+      h1='embed created by sexcu.net'
+      a(href = '/') HOME

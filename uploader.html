@@ -1,0 +1,64 @@
+<html>
+<head>
+   <title>insanity.host</title>
+   <meta name="twitter:card" content="summary_large_image">
+   <meta id="image-src" name="twitter:image:src" content="http://45.76.112.105/image/xeneologo.png">
+   <meta id="embed-desc" property="og:description" content="An image hosting website with web upload, and ShareX uploading support.">
+   <link type="application/json+oembed" href="http://45.76.112.105/json/index.json">
+   <meta id="embed-title" property="og:title" content="xggers.host">
+   <meta id="embed-subtitle" property="og:site_name" content="Add me on discord: dat_insanity#2048">
+   <meta name="theme-color" content="#82F9DE">
+   <script src="https://unpkg.com/bulma-toast"></script>
+</head>
+<script>
+const sendRequest=function(){
+const Http = new XMLHttpRequest();
+var formData = new FormData();
+formData.append("uploadFile", document.getElementById("sampleFile").files[0]);        
+Http.open("POST", '/upload', true);
+Http.setRequestHeader("api_key", document.getElementById("apikey").value);
+Http.onreadystatechange = function() {
+    if(Http.readyState == 4){
+        if(Http.status == 200) {
+            var str=Http.responseText
+            document.getElementById("url").innerHTML='<b>'+str+'<\/b>';
+        }else{
+            document.getElementById("url").innerHTML=Http.status+": "+Http.statusText;
+        }
+    }
+}
+Http.send(formData);
+}
+</script>
+<body>
+<div class="rainbow-bar"></div>
+<a href=/>return to index</a>
+<script src="js/three.js" type="text/javascript"></script>
+<script src="js/3D.js" type="text/javascript"></script> 
+<br>
+<form encType="multipart/form-data"></form>
+      <input type="file" id="sampleFile" class="button" required/>
+      <br><b>Insert your key below:</b> <input class="input" type="password" id="apikey" required/>
+      <input type="button" id="upload-btn" class="button is-primary" value='Upload!'onclick="sendRequest();" />
+  </form>
+  <div id="url" onclick="CopyToClipboard('url')"></div>
+  <script>
+  function CopyToClipboard(containerid) {
+    if (document.selection) {
+      var range = document.body.createTextRange();
+      range.moveToElementText(document.getElementById(containerid));
+      range.select().createTextRange();
+      document.execCommand("copy");
+    } else if (window.getSelection) {
+      var range = document.createRange();
+      range.selectNode(document.getElementById(containerid));
+      window.getSelection().addRange(range);
+      document.execCommand("copy");
+    }
+  }
+  </script>
+
+<button class="button" onclick="CopyToClipboard('url')">copy</button>
+
+</body>
+</html>

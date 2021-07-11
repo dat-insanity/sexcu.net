@@ -1,0 +1,12 @@
+{
+        "Version": "13.4.0",
+        "Name": "sexcu.net",
+        "DestinationType": "ImageUploader, FileUploader",
+        "RequestMethod": "POST",
+        "RequestURL": "https://sexcunet.herokuapp.com/upload",
+        "Headers": {
+          "api_key": "testkey",
+        },
+        "Body": "MultipartFormData",
+        "FileFormName": "uploadFile"
+}
